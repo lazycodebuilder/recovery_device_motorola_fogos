@@ -55,15 +55,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl-default.recovery \
     android.hardware.health@2.1-impl.recovery
 
-# Vibrator
-TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.vibrator-V2-ndk_platform \
-    android.hardware.vibrator-V2-cpp
-
-RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-cpp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-ndk_platform.so
-
 # tzdata
 PRODUCT_PACKAGES_ENG += \
     tzdata_twrp

@@ -242,6 +242,9 @@ TW_INCLUDE_REPACKTOOLS := true
 # Don't mount apex files (no need for now)
 TW_EXCLUDE_APEX := true
 
+# Disable Haptics (no need vibration for now)
+TW_NO_HAPTICS := true
+
 # Use our own USB config
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 
