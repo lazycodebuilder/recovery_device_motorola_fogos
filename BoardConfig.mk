@@ -177,7 +177,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := T1-by_LazymeaoProjects
+TW_DEVICE_VERSION := fogos-T2 | LazymeaoProjects
 
 # All language packs
 TW_EXTRA_LANGUAGES := true
@@ -195,8 +195,8 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := 40
-TW_CUSTOM_CLOCK_POS := 310
+TW_CUSTOM_CPU_POS := 50
+TW_CUSTOM_CLOCK_POS := 200
 TW_CUSTOM_BATTERY_POS := 790
 
 # Use mke2fs for formatting ext4 partitions
