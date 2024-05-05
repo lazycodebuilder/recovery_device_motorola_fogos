@@ -185,7 +185,7 @@ TW_EXTRA_LANGUAGES := true
 
 # Brightness flags
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
-TW_MAX_BRIGHTNESS := 1430
+TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 150
 
 # CPU temp sysfs path, if it is zero all the time
