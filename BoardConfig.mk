@@ -51,7 +51,7 @@ TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 # recovery as boot
 TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
-BOARD_RAMDISK_USE_LZ4 := true
+#BOARD_RAMDISK_USE_LZ4 := true
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
@@ -147,11 +147,20 @@ BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 
 # Include decryption support
 TW_INCLUDE_CRYPTO := true
-RECOVERY_SDCARD_ON_DATA := true
-# include below when enabling decryption
-# without these it may stuck on TWRP splash
-TARGET_RECOVERY_DEVICE_MODULES += libion
-RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libdisplayconfig.qti \
+    libion \
+    libxml2 \
+    vendor.display.config@1.0 \
+    vendor.display.config@2.0
+RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
 # Adjusted flags for decryption
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -177,7 +186,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := fogos-T2 | LazymeaoProjects
+TW_DEVICE_VERSION := fogos-T2.1 | LazymeaoProjects
 
 # All language packs
 TW_EXTRA_LANGUAGES := true
