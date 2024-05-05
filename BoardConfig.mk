@@ -161,7 +161,8 @@ PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # Kernel module loading for touch, battery etc
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
+TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/vendor/lib/modules/1.1)\")
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 # Add properties
