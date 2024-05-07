@@ -29,7 +29,7 @@ import /init.recovery.qcom_decrypt.rc
 
 on init
     write /sys/class/backlight/panel0-backlight/brightness 150
-	mkdir /tmp/install
+    mkdir /tmp/install
     mkdir /tmp/install/bin
 
 on fs
