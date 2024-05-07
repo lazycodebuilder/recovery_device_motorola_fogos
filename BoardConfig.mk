@@ -51,7 +51,6 @@ TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 # recovery as boot
 TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
-#BOARD_RAMDISK_USE_LZ4 := true
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
@@ -84,9 +83,6 @@ BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 
 # Partitions FileTypes
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
-
-# includes make_ext4 to support userdata partition in ext4
-TARGET_USERIMAGES_USE_EXT4 := true
 
 # includes make_f2fs to support userdata partition in f2fs
 TARGET_USERIMAGES_USE_F2FS := true
@@ -145,26 +141,16 @@ BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 
-# Include decryption support
+# Decryption support for /data
 TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
 
-# Additional binaries & libraries needed for recovery
-TARGET_RECOVERY_DEVICE_MODULES += \
-    libdisplayconfig.qti \
-    libion \
-    libxml2 \
-    vendor.display.config@1.0 \
-    vendor.display.config@2.0
-RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
-
-# Adjusted flags for decryption
-PLATFORM_SECURITY_PATCH := 2099-12-31
-VENDOR_SECURITY_PATCH := 2099-12-31
+# Hack: prevent anti rollback
+PLATFORM_SECURITY_PATCH := 2127-12-31
+BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
@@ -186,7 +172,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := fogos-T2.1 | LazymeaoProjects
+TW_DEVICE_VERSION := fogos-T2.2 | LazymeaoProjects
 
 # All language packs
 TW_EXTRA_LANGUAGES := true

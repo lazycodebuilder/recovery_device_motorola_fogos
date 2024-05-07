@@ -15,9 +15,6 @@
 # limitations under the License.
 #
 
-# Userdata
-PRODUCT_FS_COMPRESSION := 1
-
 # A/B support
 AB_OTA_UPDATER := true
 
@@ -53,6 +50,11 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
+
+# qcom decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
 
 # oem otacerts
 PRODUCT_EXTRA_RECOVERY_KEYS += \
