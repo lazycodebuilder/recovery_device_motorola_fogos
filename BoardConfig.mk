@@ -84,6 +84,9 @@ BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 # Partitions FileTypes
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
+# includes make_ext4 to support userdata partition in ext4
+TARGET_USERIMAGES_USE_EXT4 := true
+
 # includes make_f2fs to support userdata partition in f2fs
 TARGET_USERIMAGES_USE_F2FS := true
 
@@ -143,8 +146,8 @@ BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 
 # Decryption support for /data
 TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
+#TW_INCLUDE_CRYPTO_FBE := true
+#TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # Hack: prevent anti rollback
