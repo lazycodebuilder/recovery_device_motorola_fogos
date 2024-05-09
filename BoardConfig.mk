@@ -149,15 +149,12 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2127-12-31
-BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # Kernel module loading for touch, battery etc
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules/1.1)\")
-TW_LOAD_VENDOR_BOOT_MODULES := true
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
 
 # Add properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -172,7 +169,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := fogos-T2.2 | LazymeaoProjects
+TW_DEVICE_VERSION := fogos-T2.4_LazymeaoProjects
 
 # All language packs
 TW_EXTRA_LANGUAGES := true
@@ -183,7 +180,7 @@ TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 150
 
 # CPU temp sysfs path, if it is zero all the time
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone89/temp
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone53/temp
 
 # Battery
 TW_USE_LEGACY_BATTERY_SERVICES := true
@@ -193,8 +190,8 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := 50
-TW_CUSTOM_CLOCK_POS := 200
+TW_CUSTOM_CLOCK_POS := 50
+TW_CUSTOM_CPU_POS := 280
 TW_CUSTOM_BATTERY_POS := 790
 
 # Use mke2fs for formatting ext4 partitions
