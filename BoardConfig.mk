@@ -127,10 +127,6 @@ TW_CUSTOM_CLOCK_POS := 50
 TW_CUSTOM_CPU_POS := 280
 TW_CUSTOM_BATTERY_POS := 790
 
-
-# Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := Fogos
-
 # TWRP-debug
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
@@ -147,3 +143,55 @@ BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
+
+## SHRP Flags
+
+# Device codename
+SHRP_DEVICE_CODE := fogos
+# Path of your SHRP device tree
+SHRP_PATH := $(DEVICE_PATH)
+# Maintainer name
+SHRP_MAINTAINER := LazymeaoProjects
+# Recovery Type (for "About" section only)
+SHRP_REC_TYPE := Treble
+# Device Type (for "About" section only)
+SHRP_DEVICE_TYPE := A/B
+# Use this flag only if your device is A/B or Virtual A/B.
+SHRP_AB := true
+
+# Emergency DownLoad mode
+SHRP_EDL_MODE := 1
+# Internal storage path
+SHRP_INTERNAL := /sdcard
+# External SDcard path
+SHRP_EXTERNAL := /external_sd
+# USB OTG path
+SHRP_OTG := /usb-otg
+# Flashlight
+SHRP_FLASH := 1
+
+# You have to change these values according to your device's roundness.
+SHRP_STATUSBAR_RIGHT_PADDING := 48
+SHRP_STATUSBAR_LEFT_PADDING := 48
+# For notch devices
+SHRP_NOTCH := true
+# SHRP Express, enables on-the-fly theme patching (also persistent) + persistent lock
+SHRP_EXPRESS := true
+# SHRP Express use Data save shrp files inside /data instead of /system
+# Note - SHRP_EXPRESS must be true to use this flag otherwise it won't work.
+SHRP_EXPRESS_USE_DATA := true
+# SHRP Dark mode, use this flag to have dark theme set by default
+SHRP_DARK := true
+
+# Addon - Substratum Overlay (OMS -Normal- disabler)
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+# Addon - Substratum Overlay (OMS -legacy- disabler)
+SHRP_SKIP_DEFAULT_ADDON_2 := true
+# Addon - Clear Fingerprint (remove fingerprint lock from system)
+# To store this addon into the recovery ramdisk instead set to "true" here.
+INC_IN_REC_ADDON_3 := true
+# Addon - Force Encryption (remove force encryption from your device)
+# To store this addon into the recovery ramdisk instead set to "true" here.
+INC_IN_REC_ADDON_4 := true
+# To hide the prebuilt magisk flash option from recovery, set value to "true".
+SHRP_EXCLUDE_MAGISK_FLASH := true
