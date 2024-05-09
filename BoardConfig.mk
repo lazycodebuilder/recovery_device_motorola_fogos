@@ -151,9 +151,9 @@ TW_INCLUDE_CRYPTO := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # Hack: prevent anti rollback
-PLATFORM_SECURITY_PATCH := 2127-12-31
+PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
-PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION := 16.1.0
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # Kernel module loading for touch, battery etc
@@ -172,7 +172,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := fogos-T2.4_LazymeaoProjects
+TW_DEVICE_VERSION := fogos-T2.5_LazymeaoProjects
 
 # All language packs
 TW_EXTRA_LANGUAGES := true
@@ -183,7 +183,7 @@ TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 150
 
 # CPU temp sysfs path, if it is zero all the time
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone53/temp
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone89/temp
 
 # Battery
 TW_USE_LEGACY_BATTERY_SERVICES := true
