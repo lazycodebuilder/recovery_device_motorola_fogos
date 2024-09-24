@@ -27,14 +27,18 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+on early-init
+    chmod 0777 /system/bin/postrecoveryboot.sh
+    start postrecoveryboot
+
 on init
-    write /sys/class/backlight/panel0-backlight/brightness 150
+    #insmod /vendor/lib/modules/chipone_tddi_v2_mmi.ko
+    insmod /vendor/lib/modules/ilitek_v3_mmi.ko
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
-    # Mount firmware
+    # Load ADSP firmware for PMIC
     mkdir /firmware
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
 
@@ -49,4 +53,13 @@ on property:twrp.modules.loaded=true
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
+
+on property:init.svc.fastbootd=running
     umount /firmware
+
+service postrecoveryboot /system/bin/postrecoveryboot.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0 

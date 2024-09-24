@@ -624,6 +624,32 @@
         }
       ]
     },
+    {
+      "Name": "HigherPerformance",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "h-foreground"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "HigherProcessCapacityLow",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "h-background"
+          }
+        }
+      ]
+    },
 
     {
       "Name": "PerfBoost",

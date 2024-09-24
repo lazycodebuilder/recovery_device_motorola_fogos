@@ -1,19 +1,19 @@
-# mount point           fstype            device                                        flags
+# mount_point      fstype  device                     device2                         flags
 
-/boot                   emmc            /dev/block/bootdevice/by-name/boot              flags=slotselect;backup=1;flashimg=1
-/dtbo                   emmc            /dev/block/bootdevice/by-name/dtbo              flags=slotselect;backup=1;flashimg=1
-/fsg                    emmc            /dev/block/bootdevice/by-name/fsg               flags=slotselect;backup=1;flashimg=1
-/modem                  emmc            /dev/block/bootdevice/by-name/modem             flags=slotselect;backup=1;flashimg=1
-/vbmeta                 emmc            /dev/block/bootdevice/by-name/vbmeta            flags=slotselect;backup=1;flashimg=1
-/vbmeta_system          emmc            /dev/block/bootdevice/by-name/vbmeta_system     flags=slotselect;backup=1;flashimg=1
-/init_boot              emmc            /dev/block/bootdevice/by-name/init_boot         flags=slotselect;backup=1;flashimg=1
-/vendor_boot            emmc            /dev/block/bootdevice/by-name/vendor_boot       flags=slotselect;backup=1;flashimg=1
-/metadata               ext4            /dev/block/bootdevice/by-name/metadata          flags=backup=1;flashimg=1
-/misc                   emmc            /dev/block/bootdevice/by-name/misc              flags=backup=1;flashimg=1
-/modemst1               emmc            /dev/block/bootdevice/by-name/modemst1          flags=backup=1;flashimg=1
-/modemst2               emmc            /dev/block/bootdevice/by-name/modemst2          flags=backup=1;flashimg=1
-/persist                emmc            /dev/block/bootdevice/by-name/persist           flags=backup=1;flashimg=1
-/prodpersist            emmc            /dev/block/bootdevice/by-name/prodpersist       flags=backup=1;flashimg=1
+# Other partitions
+/boot              emmc    /dev/block/bootdevice/by-name/boot                         flags=slotselect;backup=1;flashimg=1
+/dtbo              emmc    /dev/block/bootdevice/by-name/dtbo                         flags=slotselect;backup=1;flashimg=1
+/fsg               emmc    /dev/block/bootdevice/by-name/fsg                          flags=slotselect;backup=1;flashimg=1
+/modem             emmc    /dev/block/bootdevice/by-name/modem                        flags=slotselect;backup=1;flashimg=1
+/vbmeta            emmc    /dev/block/bootdevice/by-name/vbmeta                       flags=slotselect;backup=1;flashimg=1
+/vbmeta_system     emmc    /dev/block/bootdevice/by-name/vbmeta_system                flags=slotselect;backup=1;flashimg=1
+/vendor_boot       emmc    /dev/block/bootdevice/by-name/vendor_boot                  flags=slotselect;backup=1;flashimg=1
+/metadata          ext4    /dev/block/bootdevice/by-name/metadata                     flags=backup=1;flashimg=1
+/misc              emmc    /dev/block/bootdevice/by-name/misc                         flags=backup=1;flashimg=1
+/modemst1          emmc    /dev/block/bootdevice/by-name/modemst1                     flags=backup=1;flashimg=1
+/modemst2          emmc    /dev/block/bootdevice/by-name/modemst2                     flags=backup=1;flashimg=1
+/persist           emmc    /dev/block/bootdevice/by-name/persist                      flags=backup=1;flashimg=1
+/prodpersist       emmc    /dev/block/bootdevice/by-name/prodpersist                  flags=backup=1;flashimg=1
 
 # Logical partitions
 /product		ext4		product						flags=display=Product
@@ -35,7 +35,6 @@
 
 # Quick boot repair partitions
 /rboot            emmc    /dev/block/bootdevice/by-name/boot             flags=backup=1;slotselect;display=QuickBootRepair
-/rinit_boot       emmc    /dev/block/bootdevice/by-name/init_boot        flags=backup=1;slotselect;subpartitionof=/rboot
 /rvendor_boot     emmc    /dev/block/bootdevice/by-name/vendor_boot      flags=backup=1;slotselect;subpartitionof=/rboot
 /rdtbo            emmc    /dev/block/bootdevice/by-name/dtbo             flags=backup=1;slotselect;subpartitionof=/rboot
 /rvbmeta          emmc    /dev/block/bootdevice/by-name/vbmeta           flags=backup=1;slotselect;subpartitionof=/rboot
